@@ -10,10 +10,14 @@
 <body>
     <h1 style="background-color: red;">Article page</h1>
     {% for art in articles %} 
-    <h1><a href="#">{{art.title}}</a></h1>
+    <h1><a href="{% url 'articles:detail' slug=art.slug %}">{{art.title}}</a></h1>
     <p>{{art.shortBody}}</p>
     <p>{{art.date}}</p>
     {% endfor %}
+    <form action="{% url 'accounts:logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">logout</button>
+    </form>
     
 </body>
 </html>
