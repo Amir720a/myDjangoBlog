@@ -13,6 +13,7 @@
     <h1><a href="{% url 'articles:detail' slug=art.slug %}">{{art.title}}</a></h1>
     <p>{{art.shortBody}}</p>
     <p>{{art.date}}</p>
+    <p>{{art.author}}</p>
     {% endfor %}
     <form action="{% url 'accounts:logout' %}" method="post">
         {% csrf_token %}
